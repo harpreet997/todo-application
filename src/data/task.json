@@ -1,0 +1,34 @@
+{
+  "tasks": [
+    {
+      "id": 1,
+      "task": "Do Laundry",
+      "subtasks": [
+        {
+            "id": 1,
+            "subtask": "Pickup the clothes"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "task": "Take Lunch"
+    },
+    {
+      "task": "Take Dinner",
+      "id": 3
+    },
+    {
+      "task": "Take Walk",
+      "id": 4
+    },
+    {
+      "task": "Take a Breakfast",
+      "id": 5
+    },
+    {
+      "task": "Play Cricket",
+      "id": 6
+    }
+  ]
+}

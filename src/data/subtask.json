@@ -1,0 +1,24 @@
+{
+  "subtasks": [
+    {
+      "id": 1,
+      "subtask": "Pickup the clothes"
+    },
+    {
+      "id": 2,
+      "subtask": "Turn on the machine"
+    },
+    {
+      "subtask": "Bring back the clothes",
+      "id": 3
+    },
+    {
+      "subtask": "Dry the clothes",
+      "id": 4
+    },
+    {
+      "subtask": "Throw the clothes in the machine",
+      "id": 5
+    }
+  ]
+}

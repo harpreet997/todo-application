@@ -68,3 +68,18 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+### Instructions to run the project
+
+1. Download the zip folder from the github repository.
+2. Extract the zip folder.
+3. Open any code editor (E.g. Visual Studio Code).
+4. Then navigate to the app folder i.e., todo (For e.g : C:\Users\Honey\Desktop\react-projects\todo>)
+5. After that run the following two commands 
+    - npx json-server --watch src/data/subtask.json --port 7000 
+    - npx json-server --watch src/data/subtask.json --port 9000
+    Both should be running. So run them on two different terminals.
+6. After that open one more new terminal to run the app by typing the following command i.e., npm install and then type npm start command. 
+7. It will start the server at the port number 3000 i.e, on the browser (http://localhost:3000/). 
+8. You will see the app running on the browser. 
