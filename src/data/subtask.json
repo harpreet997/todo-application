@@ -19,6 +19,11 @@
     {
       "subtask": "Throw the clothes in the machine",
       "id": 5
+    },
+    {
+      "subtask": "Bring back the clothes",
+      "id": 6
     }
+    
   ]
 }
