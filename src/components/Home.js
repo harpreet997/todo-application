@@ -107,7 +107,7 @@ const Home = () => {
                             <span style={{ marginLeft: 50 }} onClick={myFunction} id="dropbtn" className="glyphicon">&#xe114;</span></h4>
 
                         <div id="myDropdown" className="dropdown-content">
-                            <form name="subtask" onSubmit={AddSubTask}>
+                            <form name="subtask" onSubmit={AddSubTask}> 
                                 <label style={{ marginLeft: 10, marginRight: 10, fontSize: 20 }} htmlFor="subtaskname">Sub Task Name</label>
                                 <input style={{ marginRight: 10, height: 30 }} type="text" name='subtask' placeholder='Enter Sub-task Name' 
                                 value={subtask} onChange={(e) => setSubtask(e.target.value)} required />
