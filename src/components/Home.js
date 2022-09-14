@@ -6,6 +6,7 @@ const Home = () => {
     const [data1, setData1] = useState([]);
     const [task, setTask] = useState();
     const [subtask, setSubtask] = useState();
+    const [complete, setComplete] = useState(0);
 
     function myFunction() {
         document.getElementById("myDropdown").classList.toggle("show");
@@ -53,6 +54,12 @@ const Home = () => {
         window.location.reload(false);
     }
 
+    const CountComplete = () => {
+        var a= document.forms["subtask"];
+        var x = a.querySelectorAll('input[type="checkbox"]:checked');
+        setComplete(x.length);
+    }
+
     useEffect(() => {
         fetch('http://localhost:9000/tasks')
             .then((res) => {
@@ -60,17 +67,21 @@ const Home = () => {
             })
             .then(data => {
                 setData(data);
+                console.log(data)
+                console.log("data", data[0].subtasks[0].subtask)
             })
             .catch((err) => {
                 console.log(err);
             })
 
-            fetch('http://localhost:7000/subtasks')
+        fetch('http://localhost:7000/subtasks')
             .then((res) => {
                 return res.json();
             })
             .then(data1 => {
                 setData1(data1);
+                console.log(data1);
+                console.log(data1.length)
             })
             .catch((err) => {
                 console.log(err);
@@ -80,31 +91,34 @@ const Home = () => {
     return (
         <div className='container-fluid'>
             <h1 style={{ textAlign: "center", marginBottom: 10 }}>Todo App</h1>
-            <form style={{marginBottom: 10}} onSubmit={AddTask}>
-                <label style={{marginRight : 10, fontSize: 20}} htmlFor="taskname">Task Name</label>
-                <input style={{marginRight : 10, height: 30}}type="text" name='taskname' placeholder='Enter Task Name' value={task} onChange={(e) => setTask(e.target.value)} required />
+            <form style={{ marginBottom: 10 }} onSubmit={AddTask}>
+                <label style={{ marginRight: 10, fontSize: 20 }} htmlFor="taskname">Task Name</label>
+                <input style={{ marginRight: 10, height: 30 }} type="text" name='taskname' placeholder='Enter Task Name' 
+                value={task} onChange={(e) => setTask(e.target.value)} required />
                 <button type='submit'>New List</button>
             </form>
 
-            {data.map((item) => {
+            {data.map((item, index) => {
                 return (
                     <div className='card'>
-                        <h4><input style={{margin : 10}}type="checkbox" name="" id="" />{item.task}<span style={{marginLeft : 50}} onClick={myFunction} id="dropbtn" className="glyphicon">&#xe114;</span></h4>
-                        
+                        <h4 key={index}>
+                            <input style={{ margin: 10 }} type="checkbox" />{item.task}
+                            <span style={{marginLeft: 10, fontSize: 15}}>{complete} of {data1.length} completed</span>
+                            <span style={{ marginLeft: 50 }} onClick={myFunction} id="dropbtn" className="glyphicon">&#xe114;</span></h4>
+
                         <div id="myDropdown" className="dropdown-content">
-                            <form onSubmit={AddSubTask}>
-                            <label style={{marginLeft: 10, marginRight : 10, fontSize: 20}}htmlFor="subtaskname">Sub Task Name</label>
-                            <input style={{marginRight : 10, height: 30}} type="text" name='subtask' placeholder='Enter Sub-task Name' value={subtask} onChange={(e) => setSubtask(e.target.value)} required />
-                            <button style= {{marginRight: 10}} type='submit'>New Step</button>
-                            {data1.map((item) => {
-                                return (
-                                    <>
-                                    <h4><input style={{margin : 10}}type="checkbox" name="" id="" />{item.subtask}</h4>
-                                    </>
-                                )
-                            })}
+                            <form name="subtask" onSubmit={AddSubTask}>
+                                <label style={{ marginLeft: 10, marginRight: 10, fontSize: 20 }} htmlFor="subtaskname">Sub Task Name</label>
+                                <input style={{ marginRight: 10, height: 30 }} type="text" name='subtask' placeholder='Enter Sub-task Name' 
+                                value={subtask} onChange={(e) => setSubtask(e.target.value)} required />
+                                <button style={{ marginRight: 10 }} type='submit'>New Step</button>
+                                {data1.map((item) => {
+                                    return (
+                                    <h4><input style={{ margin: 10 }} onChange={CountComplete} type="checkbox" />{item.subtask}</h4>
+                                    )
+                                })}
+                                
                             </form>
-                            
                         </div>
                     </div>
                 )
