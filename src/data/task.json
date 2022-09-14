@@ -3,7 +3,7 @@
     {
       "id": 1,
       "task": "Do Laundry",
-      "subtask": [
+      "subtasks": [
         {
           "id": 1,
           "subtask": "Pickup the clothes"
@@ -34,5 +34,6 @@
       "task": "Watch Cricket",
       "id": 7
     }
+    
   ]
 }
