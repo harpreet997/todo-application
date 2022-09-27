@@ -3,20 +3,36 @@
     {
       "id": 1,
       "task": "Do Laundry",
-      "subtasks": [
+      "subtask": [
         {
           "id": 1,
+          "subtask": "Pickup the clothes"
+        },
+        {
+          "id": 2,
           "subtask": "Pickup the clothes"
         }
       ]
     },
     {
       "id": 2,
-      "task": "Take Lunch"
+      "task": "Take Lunch",
+      "subtask": [
+        {
+          "id": 1,
+          "subtask": "Turn on the machine"
+        }
+      ]
     },
     {
       "task": "Take Dinner",
-      "id": 3
+      "id": 3,
+      "subtask": [
+        {
+          "id": 1,
+          "subtask": "Bring back the clothes"
+        }
+      ]
     },
     {
       "task": "Take Walk",

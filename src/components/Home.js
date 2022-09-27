@@ -43,7 +43,8 @@ const Home = () => {
     const AddSubTask = (e) => {
         e.preventDefault();
         const data2 = { subtask }
-        fetch('http://localhost:7000/subtasks', {
+        // alert(data2.subtask)
+        fetch('http://localhost:9000/tasks', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -68,7 +69,7 @@ const Home = () => {
             .then(data => {
                 setData(data);
                 console.log(data)
-                console.log("data", data[0].subtasks[0].subtask)
+                // console.log("data", data[0].subtasks[0].subtask)
             })
             .catch((err) => {
                 console.log(err);
@@ -104,19 +105,34 @@ const Home = () => {
                         <h4 key={index}>
                             <input style={{ margin: 10 }} type="checkbox" />{item.task}
                             <span style={{marginLeft: 10, fontSize: 15}}>{complete} of {data1.length} completed</span>
-                            <span style={{ marginLeft: 50 }} onClick={myFunction} id="dropbtn" className="glyphicon">&#xe114;</span></h4>
+                            <span style={{ marginLeft: 50 }} onClick={() =>{
+                                alert(JSON.stringify(item));
+                                //alert(JSON.stringify(item.subtask[0].subtask))
+                                alert(JSON.stringify(item.task))
+                                myFunction();
+                                //alert("test");
+                            }
+                                } id="dropbtn" className="glyphicon">&#xe114;</span></h4>
 
                         <div id="myDropdown" className="dropdown-content">
-                            <form name="subtask" onSubmit={AddSubTask}> 
+                            <form name="subtask" onSubmit={AddSubTask}>
+ 
                                 <label style={{ marginLeft: 10, marginRight: 10, fontSize: 20 }} htmlFor="subtaskname">Sub Task Name</label>
                                 <input style={{ marginRight: 10, height: 30 }} type="text" name='subtask' placeholder='Enter Sub-task Name' 
                                 value={subtask} onChange={(e) => setSubtask(e.target.value)} required />
                                 <button style={{ marginRight: 10 }} type='submit'>New Step</button>
-                                {data1.map((item) => {
-                                    return (
-                                    <h4><input style={{ margin: 10 }} onChange={CountComplete} type="checkbox" />{item.subtask}</h4>
-                                    )
-                                })}
+                                
+                                    
+                                    <h4><input style={{ margin: 10 }} onChange={() => 
+                                        {
+
+                                            alert(item.subtask[0].subtask);
+                                            alert(item.task);
+                                            CountComplete();
+                                        }
+                                        } type="checkbox" />{item.task}</h4>
+                                   
+                                
                                 
                             </form>
                         </div>
