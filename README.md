@@ -83,4 +83,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 6. After that open one more new terminal to run the app by typing the following command i.e., npm install and then type npm start command. 
 7. It will start the server at the port number 3000 i.e, on the browser (http://localhost:3000/). 
 8. You will see the app running on the browser.
-8. You will see the app running on the web browser at this url (http://localhost:3000/).
+8. You will see the app running on the browser at this url (http://localhost:3000/).
