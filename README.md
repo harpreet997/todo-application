@@ -84,4 +84,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 7. It will start the server at the port number 3000 i.e, on the browser (http://localhost:3000/). 
 8. You will see the app running on the browser.
 8. You will see the app running on the web browser.
-8. You will see the app running on the browser at this url (http://localhost:3000/).
+8. You will see the app running on the browser .
