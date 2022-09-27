@@ -69,7 +69,7 @@ const Home = () => {
             .then(data => {
                 setData(data);
                 console.log(data)
-                // console.log("data", data[0].subtasks[0].subtask)
+                
             })
             .catch((err) => {
                 console.log(err);
